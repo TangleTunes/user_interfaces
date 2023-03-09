@@ -38,11 +38,8 @@ dependencies:
   just_audio: ^0.9.31
   path_provider: ^2.0.11
   google_fonts: ^2.1.0
-  # animated_search_bar: ^2.5.0
-  # material_floating_search_bar: ^0.3.7
-   searchable_listview: ^2.2.2
-  #searchable_listview: 
-   #path: ./searchable_listview-hijack.dart
+  searchable_listview: ^2.2.2
+
 dev_dependencies:
   flutter_native_splash: ^2.0.5
   flutter_test:

@@ -53,8 +53,10 @@ class _ExampleAppState extends State<ExampleApp> {
           const Text('Searchable list with divider'),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(15),
+              padding: const EdgeInsets.all(5),
+
               child: SearchableList<Actor>(
+                
                 style: const TextStyle(fontSize: 25),
                 onPaginate: () async {
                   await Future.delayed(const Duration(milliseconds: 1000));
