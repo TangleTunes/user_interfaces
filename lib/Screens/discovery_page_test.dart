@@ -1,12 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:async';
-import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:music_application/Components/audioplayer.dart';
-import 'package:music_application/Components/navigation_bar.dart';
 import 'package:music_application/theme/theme_constants.dart';
 import 'package:searchable_listview/searchable_listview.dart';
 
@@ -20,7 +16,7 @@ class ExampleApp extends StatefulWidget {
 class _ExampleAppState extends State<ExampleApp> {
   final List<Song> songs = [
     Song(
-      songName: 'Bohemian Rhapsody',
+      songName: 'BH',
       artist: 'Queen',
       duration: 530,
       price: 10,
@@ -250,77 +246,83 @@ class _SongItemState extends State<SongItem> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                SizedBox(width: 10),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      widget.song.songName,
-                      style: const TextStyle(
-                        color: COLOR_PRIMARY,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        widget.song.songName,
+                        style: const TextStyle(
+                          color: COLOR_PRIMARY,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
                       ),
-                    ),
-                    Text(
-                      'Artist: ${widget.song.artist}',
-                      style: const TextStyle(
-                        color: COLOR_PRIMARY,
+                      Text(
+                        'Artist: ${widget.song.artist}',
+                        style: const TextStyle(
+                          color: COLOR_PRIMARY,
+                        ),
                       ),
-                    ),
-                    Text(
-                      'Duration: ${formatedTime(widget.song.duration)}',
-                      style: const TextStyle(
-                        color: COLOR_PRIMARY,
+                      Text(
+                        'Duration: ${formatedTime(widget.song.duration)}',
+                        style: const TextStyle(
+                          color: COLOR_PRIMARY,
+                        ),
                       ),
-                    ),
-                    Text(
-                      'Price: ${widget.song.price} MIOTA',
-                      style: const TextStyle(
-                        color: COLOR_PRIMARY,
+                      Text(
+                        'Price: ${widget.song.price} MIOTA',
+                        style: const TextStyle(
+                          color: COLOR_PRIMARY,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-
-                IconButton(
-                  iconSize: 35,
-                  icon: (isPressed)
-                      ? Icon(Icons.favorite_border_outlined,
-                          color: COLOR_TERTIARY)
-                      : Icon(Icons.favorite, color: COLOR_TERTIARY),
-                  onPressed: () {
-                    setState(() {
-                      //changes the button from a full heart to a border heart
-                      //TODO add that it adds the song to favorites
-                      if (!isPressed) {
-                        isPressed = true;
-                      } else {
-                        isPressed = false;
-                      }
-                    });
-                  },
-                ),
-                //the play song button
-                Container(
-                  width: 30,
-                  height: 30,
-                  decoration: BoxDecoration(
-                    color: COLOR_TERTIARY,
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    ],
                   ),
-                  child: IconButton(
-                      padding: EdgeInsets.zero,
-                      onPressed: null,
-                      icon: Icon(
-                        Icons.play_arrow,
-                        color: COLOR_SECONDARY,
-                      )),
-                ),
-              ],
+                  Row(
+                    children: [
+                      IconButton(
+                        iconSize: 35,
+                        icon: (isPressed)
+                            ? Icon(Icons.favorite_border_outlined,
+                                color: COLOR_TERTIARY)
+                            : Icon(Icons.favorite, color: COLOR_TERTIARY),
+                        onPressed: () {
+                          setState(() {
+                            //changes the button from a full heart to a border heart
+                            //TODO add that it adds the song to favorites
+                            if (!isPressed) {
+                              isPressed = true;
+                            } else {
+                              isPressed = false;
+                            }
+                          });
+                        },
+                      ),
+                      //the play song button
+                      Container(
+                        width: 30,
+                        height: 30,
+                        decoration: BoxDecoration(
+                          color: COLOR_TERTIARY,
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                        ),
+                        child: IconButton(
+                            padding: EdgeInsets.zero,
+                            onPressed: null,
+                            icon: Icon(
+                              Icons.play_arrow,
+                              color: COLOR_SECONDARY,
+                            )),
+                      ),
+                    ],
+                  )
+                ],
+              ),
             )
           ],
         ),
