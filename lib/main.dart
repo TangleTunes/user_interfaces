@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_application/Components/custom_list_tile.dart';
 import 'package:music_application/Screens/discovery_page.dart';
-import 'package:music_application/Screens/discovery_page_test.dart';
-import 'package:music_application/Screens/register_page.dart';
+import 'package:music_application/Screens/library_page.dart';
 import 'package:music_application/theme/theme_constants.dart';
 
 import 'Screens/unlock_account.dart';
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
       //home: RegisterPage(),
       home: const Scaffold(
         body: SafeArea(
-          child: ExampleApp(),
+          child: LibraryPage(),
         ),
       ),
       theme: themeData,
